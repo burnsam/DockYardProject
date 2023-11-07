@@ -10,9 +10,13 @@ namespace DockYard
     {
         public string DriverName { private set; get; }
         public string DeliveryCompany { private set; get; }
-        private Stack<Crate> Trailer;
-        private int TimeIncrement;
-
+        public Stack<Crate> Trailer;
+        /// <summary>
+        /// Trucks contains Crates and are the main object used by primailay Dock and Yard
+        /// </summary>
+        /// <param name="driverName"></param>
+        /// <param name="deliveryCompany"></param>
+        /// <param name="NumberOfCrates"></param>
         public Truck(string driverName, string deliveryCompany, int NumberOfCrates)
         {
             DriverName = driverName;
@@ -22,7 +26,6 @@ namespace DockYard
             {
                 Trailer.Push(new Crate());
             }
-            TimeIncrement = 0;
         }
 
         public bool nextCrateExists()
@@ -36,13 +39,8 @@ namespace DockYard
         }
         public Crate UnLoad()
         {
-            Crate crate = Trailer.Pop();
-
-
-            return crate;
+            return Trailer.Pop();
         }
-
-
 
         public string ToString()
         {

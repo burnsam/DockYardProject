@@ -10,7 +10,9 @@ namespace DockYard
     {
         public string ID { get; private set; }
         public double Price { get; private set; }
-
+        /// <summary>
+        /// Crates randomly aquire a price and Id from a helper class
+        /// </summary>
         public Crate()
         {
             ID = RNGesus.RandomizerID();

@@ -8,10 +8,12 @@ namespace DockYard
 {
     internal static class FileLord
     {
-        static public void WriteCrateLog(string Pencil)
+        /// <summary>
+        /// A Helper Class used to write information to files
+        /// </summary>
+        /// <param name="Pencil">any length string</param>
+        public static  void WriteCrateLog(string Pencil)
         {
-
-            File.Create("CrateLog.CSV");
             StreamWriter sw = new("CrateLog.CSV");
             sw.WriteLine(Pencil);
             sw.Close();

@@ -8,6 +8,10 @@ namespace DockYard
 {
     internal static class RNGesus
     {
+        /// <summary>
+        /// A Helper class that deals with randomistion
+        /// </summary>
+        /// <returns></returns>
         static public string RandomizerID()
         {
             Random random = new Random();
@@ -22,10 +26,11 @@ namespace DockYard
         static public double RandomizerPrice()
         {
             Random random = new Random();
-            double price = random.Next(1, 10);
+            double price = random.Next(50, 500);
             price += random.NextDouble();
-            return price * 50;
-            
+            price = Math.Round(price, 2);
+            return price;
         }
+
     }
 }
