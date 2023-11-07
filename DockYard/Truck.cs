@@ -10,7 +10,7 @@ namespace DockYard
     {
         public string DriverName { private set; get; }
         public string DeliveryCompany { private set; get; }
-        public Stack<Crate> Trailer;
+        protected Stack<Crate> Trailer;
         /// <summary>
         /// Trucks contains Crates and are the main object used by primailay Dock and Yard
         /// </summary>

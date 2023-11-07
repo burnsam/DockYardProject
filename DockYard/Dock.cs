@@ -19,7 +19,10 @@ namespace DockYard
         public int TotalTrucks { get; private set; }
         public int TimeInUse { get; private set; }
         public int TimeNotInUse { get; private set; }
-
+        /// <summary>
+        /// Main staging area where things get done, tracks information
+        /// </summary>
+        /// <param name="DockID"></param>
         public Dock(string DockID)
         {
             Line = new Queue<Truck>();
@@ -38,9 +41,11 @@ namespace DockYard
             newSTR += Unloadedcrate.ToString();
             newSTR += UnloadingTruck.ToString();
             if (UnloadingTruck.nextCrateExists()) { newSTR += "more crates in truck!"; }
-            else if (DoesNextInLineExists()) { newSTR += "empty, new truck in line!"; }
-            else { newSTR += "empty, we require another truck!"; }
+            else if (DoesNextInLineExists()) { newSTR += "empty, new truck in line!"; TotalTrucks++; }
+            else { newSTR += "empty, we require another truck!"; TotalTrucks++; }
             FileLord.WriteCrateLog(newSTR);
+            TotalCrates++;
+            TotalSales += Unloadedcrate.Price;
         }
 
         public bool DoesNextInLineExists() 
@@ -51,6 +56,11 @@ namespace DockYard
             } else {
                 return true;
             }
+        }
+
+        public string Report()
+        {
+            throw new NotImplementedException();
         }
 
         public void JoinLine(Truck truck)

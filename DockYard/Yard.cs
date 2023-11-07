@@ -11,7 +11,10 @@ namespace DockYard
         public List<Dock> Docks;
         public Queue<Truck> Entrance;
         public int TimeLeft { get; private set; }
-        
+        /// <summary>
+        /// Main Control Hub loads and sets up simulation as well as runs the simulation
+        /// </summary>
+        /// <param name="NumberofDocks"></param>
         public Yard(int NumberofDocks)
         {
             Docks = new List<Dock>();
@@ -35,6 +38,11 @@ namespace DockYard
 
 
 
+            }
+
+            foreach (Dock dock in Docks)
+            {
+                dock.Report();
             }
         }
     }
