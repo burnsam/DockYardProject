@@ -18,7 +18,7 @@ namespace DockYard
             ID = RNGesus.RandomizerID();
             Price = RNGesus.RandomizerPrice();
         }
-        public string ToString()
+        public override string ToString()
         {
             string build = "Crate ID: " + ID + "\t";
             build += "Price of Crate: $" + Price + "\t";

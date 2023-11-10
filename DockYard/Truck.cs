@@ -42,7 +42,7 @@ namespace DockYard
             return Trailer.Pop();
         }
 
-        public string ToString()
+        public override string ToString()
         {
             string s = "Delivered by: " + DriverName + "\t";
             s += "Delivered From: " + DeliveryCompany + "\t";
