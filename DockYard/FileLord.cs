@@ -14,7 +14,7 @@ namespace DockYard
         /// <param name="Pencil">any length string</param>
         public static  void WriteCrateLog(string Pencil)
         {
-            StreamWriter sw = new("CrateLog.CSV");
+            StreamWriter sw = new("CrateLog.txt");
             sw.WriteLine(Pencil);
             sw.Close();
         }

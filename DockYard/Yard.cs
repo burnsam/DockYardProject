@@ -40,7 +40,7 @@ namespace DockYard
 
 
             // Every time increment Adds trucks to the entrance
-            // each Truck then goes to the dock with the smallest line repeat for every truck in entrance
+            // Each Truck then goes to the dock with the smallest line repeat for every truck in entrance
             // Docks then updates their statistics
             // each Truck in each dock then logs a crate leaving immediatly when empty (they use a different path out)
             while (TimeLeft > 0)
@@ -51,7 +51,8 @@ namespace DockYard
                 }
                 foreach (Dock dock in Docks)
                 {
-                    if (dock.NumberOfTrucks() == 0){ dock.JoinLine(Entrance.Dequeue()); break; }
+                    if (Entrance.Count <= 0) { break; }
+                    if (dock.NumberOfTrucks() == 0) { dock.JoinLine(Entrance.Dequeue());}
                     min = Math.Min(min, dock.NumberOfTrucks());
                 }
                 while (Entrance.Count > 0)
@@ -70,7 +71,7 @@ namespace DockYard
 
                 foreach (Dock dock in Docks) dock.RunOperations();
 
-
+                TimeLeft--;
 
             }
             Console.WriteLine(DockYardReport());
@@ -99,19 +100,19 @@ namespace DockYard
                 GrandTotalSales += dock.TotalSales;
                 GrandTimeNotInUse += dock.TimeNotInUse;
             }
-            GrandCost = 100 * GrandTimeInUse * Docks.Count;
+            GrandCost = 100 * GrandTimeInUse;
             GrandTimeInUse = GrandTimeInUse / Docks.Count;
             report += "Longest Line was: " + LongestLine + "\n";
             report += "Total Number of trucks Processed: " + GrandTotalTrucks + "\n";
             report += "Total Number of Crates Processed: " + GrandTotalCrates + "\n";
-            report += "Total Value of Crates Processed: " + GrandTotalSales + "\n";
-            report += "Average Value of Crates Processed: " + GrandTotalSales / GrandTotalCrates + "\n";
-            report += "Average Value of Trucks Processed: " + GrandTotalSales / GrandTotalTrucks + "\n";
+            report += "Total Value of Crates Processed: $" + GrandTotalSales + "\n";
+            report += "Average Value of Crates Processed: $" + GrandTotalSales / GrandTotalCrates + "\n";
+            report += "Average Value of Trucks Processed: $" + GrandTotalSales / GrandTotalTrucks + "\n";
             report += "Total amount of time Docks were in use: " + GrandTimeInUse + "\n";
             report += "Total amount of time Docks were not in use: " + GrandTimeNotInUse + "\n";
             report += "Average Amount of time Docks were in use: " + GrandTimeInUse / Docks.Count + "\n";
-            report += "Total Cost of operation: " + GrandCost + "\n";
-            report += "Total Revenue of operation" + (GrandTotalSales - GrandCost) + "\n";
+            report += "Total Cost of operation: $" + GrandCost + "\n";
+            report += "Total Revenue of operation: $" + (GrandTotalSales - GrandCost) + "\n";
 
             return report;
         }

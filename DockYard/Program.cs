@@ -4,14 +4,9 @@
     {
         static void Main(string[] args)
         {
+            Yard DockYard = new Yard(5);
 
-
-
-
-
-
-
-
+            DockYard.Run();
 
 
 
@@ -31,7 +26,18 @@
             * {
             *     Console.WriteLine(crate.ToString());
             * }
+            *
+            *  Testing Run Operations and random trucks -- First Time Success
+            *  Dock dock = new Dock("180 test testing test");
+            *  dock.JoinLine(RNGesus.RandomizerTruck());
+            *  dock.JoinLine(RNGesus.RandomizerTruck());
+            *  dock.JoinLine(RNGesus.RandomizerTruck());
+            *  dock.RunOperations();
+            *  
+            *  Yard DockYard = new Yard(20); Crashed Successful
+            *  Yard DockYard = new Yard(0); Crashed Successful
             */
+
         }
     }
 }
