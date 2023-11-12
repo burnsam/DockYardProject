@@ -37,6 +37,23 @@ namespace DockYard
             int result = rand.Next(0,integer);
             return result;
         }
+        /// <summary>
+        /// Based of the Time Of day determines roughly how many trucks arrive. the closer to 24 the more trucks arrive
+        /// </summary>
+        /// <param name="TimeOFDay">The Time left</param>
+        /// <returns>Number of Trucks</returns>
+        static public int RanomizerNumberOFTrucks(int TimeOFDay)
+        {
+            Random rng = new Random();
+            int NOT = 0;
+            if (TimeOFDay < 24)
+            {
+                NOT = rng.Next(0+(TimeOFDay/2),30-(24-TimeOFDay));
+            } else {
+                NOT = rng.Next(12-((TimeOFDay-24)/2),30-(TimeOFDay-24));
+            }
+            return NOT;
+        }
         static public Truck RandomizerTruck()
         {
             Random rand = new Random();

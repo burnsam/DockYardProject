@@ -4,9 +4,15 @@
     {
         static void Main(string[] args)
         {
-            Yard DockYard = new Yard(5);
+            Yard DockYard = new Yard(1);
 
             DockYard.Run();
+            //Yard yard = new Yard(3);
+            //Yard yerd = new Yard(10);
+            //Yard GigaYard = new Yard(15);
+            //yard.Run();
+            //yerd.Run();
+            //GigaYard.Run();
 
 
 

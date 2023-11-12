@@ -91,6 +91,7 @@ namespace DockYard
             int GrandTimeNotInUse = 0;
             int LongestLine = 0;
             int GrandCost;
+            int NumberofDocks = Docks.Count;
             foreach (Dock dock in Docks)
             {
                 LongestLine = Math.Max(LongestLine,dock.GreatestLength);
@@ -106,13 +107,13 @@ namespace DockYard
             report += "Total Number of trucks Processed: " + GrandTotalTrucks + "\n";
             report += "Total Number of Crates Processed: " + GrandTotalCrates + "\n";
             report += "Total Value of Crates Processed: $" + GrandTotalSales + "\n";
-            report += "Average Value of Crates Processed: $" + GrandTotalSales / GrandTotalCrates + "\n";
-            report += "Average Value of Trucks Processed: $" + GrandTotalSales / GrandTotalTrucks + "\n";
+            report += "Average Value of Crates Processed: $" + Math.Round(GrandTotalSales / GrandTotalCrates,2) + "\n";
+            report += "Average Value of Trucks Processed: $" + Math.Round(GrandTotalSales / GrandTotalTrucks,2) + "\n";
             report += "Total amount of time Docks were in use: " + GrandTimeInUse + "\n";
             report += "Total amount of time Docks were not in use: " + GrandTimeNotInUse + "\n";
-            report += "Average Amount of time Docks were in use: " + GrandTimeInUse / Docks.Count + "\n";
+            report += "Average Amount of time Docks were in use: " + Math.Round(GrandTotalSales / NumberofDocks, 2) + "\n";
             report += "Total Cost of operation: $" + GrandCost + "\n";
-            report += "Total Revenue of operation: $" + (GrandTotalSales - GrandCost) + "\n";
+            report += "Total Revenue of operation: $" + Math.Round(GrandTotalSales - GrandCost) + "\n";
 
             return report;
         }
